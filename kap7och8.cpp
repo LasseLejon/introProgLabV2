@@ -157,15 +157,37 @@ bool matcharVildnyckel(string ord, string nyckel){
                 temp+=ord[n];
 
         }
-        if(nyckel[i+1]==ord[ord.size()-1])
-            temp+=ord[ord.size()-1];
+        for(unsigned int k=i+1;k<nyckel.size();k+=1)
+            temp+=nyckel[k];
     }
     return (temp==ord);
 }
+bool matcharVildnyckel2(string ord, string nyckel){
+    for(unsigned int i=0;i<ord.size() && nyckel[i]!='*';i+=1){
+        if(nyckel[i]=='?'){
+            nyckel[i]=ord[i];
+        }
+        if(ord[i]==nyckel[i])
+            continue;
+        else return false;
+
+    }
+    unsigned int n=nyckel.size()-1;
+    unsigned int o=ord.size()-1;
+    while(nyckel[n]!='*'){
+        if(ord[o]==nyckel[n]){
+            o-=1;
+            n-=1;
+        }
+        else return false;
+    }
+    return true;
+
+}
 void automattestaMatcharVildnyckel(){
-    assert( matcharVildnyckel("abcdefgh", "a?c*h") );
-    assert( !matcharVildnyckel("abcdefgh", "a?c*x") );
-    assert( !matcharVildnyckel("abcdefgh", "abc?") );
+    assert( matcharVildnyckel2("abcdefgh", "a?c*h") );
+    assert( !matcharVildnyckel2("abcdefgh", "a?c*x") );
+    assert( !matcharVildnyckel2("abcdefgh", "abc?") );
 }
 
 void automattestaMatcharFrgenyckel(){
@@ -177,7 +199,7 @@ void automattestaMatcharFrgenyckel(){
 
 void skrivMatchningar(const vector<string>& allaOrd, string nyckel){
     for (unsigned int i=0; i<allaOrd.size(); i+=1) {
-        if (matcharVildnyckel(allaOrd[i], nyckel))
+        if (matcharVildnyckel2(allaOrd[i], nyckel))
             cout << allaOrd[i] << endl;
     }
 
@@ -222,13 +244,13 @@ string testet(string ord, string nyckel){
 }
 void testarTestet(){
     string s1=testet("hejsan","h?j*n");
-    string s2="abcdefgh";
+    string s2="reer";
     cout << s2 << s2.size();
 
 }
 
 void shortcutToKap7Och8(){
-   // testarTestet();
+    //testarTestet();
     automattestaMatcharVildnyckel();
     //automattestaMatcharFrgenyckel();
     ordMatch();
