@@ -7,12 +7,13 @@ void shortcutToArrayer();
 void shortcutToPrimes();
 
 void shortcutToTeckenOchStrangar();
-void shortcutToTest();
+
+void shortcutToKap7Och8();
 
 
-int main()
-{
-    shortcutToTest();
+
+int main(){
+    shortcutToKap7Och8();
 
     return 0;
 }

@@ -165,7 +165,6 @@ string versalstrang(const string str){
     string tillVersal=str;
     for(unsigned int i=0;i<str.size();i++)
         tillVersal[i]=toupper(str[i]);
-
     return tillVersal;
 }
 
