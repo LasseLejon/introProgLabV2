@@ -1,0 +1,29 @@
+[33mcommit c1cf24775a58a75ec7e2f3f119329e829704f70b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Lasse Lejon <lasse.lejon@hotmail.com>
+Date:   Sun Nov 1 13:40:12 2020 +0100
+
+    Added a loop that counts to ten
+
+[33mcommit 009346a79f4a3906efca0da2be6e7397ba9c734f[m
+Author: Lasse Lejon <lasse.lejon@hotmail.com>
+Date:   Sun Nov 1 13:26:42 2020 +0100
+
+    Added some code to test.cpp
+
+[33mcommit d315777d6fa00f0a4f9150203983c4b6d415e84a[m
+Author: Lasse Lejon <lasse.lejon@hotmail.com>
+Date:   Sun Nov 1 13:26:00 2020 +0100
+
+    Added test.cpp
+
+[33mcommit 94858c626c3008a82b63c93b508e84bb28f954c0[m
+Author: Lasse Lejon <lasse.lejon@hotmail.com>
+Date:   Sun Nov 1 13:13:59 2020 +0100
+
+    Added some code to test
+
+[33mcommit 6c1d18ccf65c80cae48d9a392224d4f13cf9a1cc[m
+Author: Lasse Lejon <lasse.lejon@hotmail.com>
+Date:   Sun Nov 1 13:10:50 2020 +0100
+
+    Added test.cpp
