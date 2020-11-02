@@ -1,5 +1,9 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <cassert>
 using namespace std;
 
 void testaCin1(){
@@ -83,8 +87,90 @@ void huvudLoop(){
             cout << "förstår ej" << endl;
     }
 }
+bool doingCalculations2(string kommandorad){
+    int a, b;
+    char op;
+    istringstream stream(kommandorad);
+    stream >> a >> op >> b;
+    bool ok=!stream.fail();
+    if(ok){
+        char dum;
+        stream >> dum;
+        ok=stream.fail();
+    }
+    if(ok){
+        if(op=='+') cout << a+b << endl;
+        else if(op=='-') cout << a-b << endl;
+        else if(op=='*') cout << a*b << endl;
+        else if(op=='/') cout << a/b << endl;
+        else if(op=='%') cout << a%b << endl;
+        else cout << "okänd operand" << endl;
+    }
+    return ok;
+}
+vector <string> ordlistan(){
+    string path = "C:/Users/Lasse/OneDrive/Skrivbord/ord.txt";
+    ifstream filen(path);
+    vector<string> listan;
+    string ettOrd;
+    while(filen>>ettOrd){
+        listan.push_back(ettOrd);
+    }
+    return listan;
+
+}
+void provaOrdlistan(){
+    vector<string> utskrift=ordlistan();
+    for(unsigned int i=0;i<utskrift.size();i++)
+        cout << utskrift[i] << endl;
+
+}
+bool matcharNyckeln(string ord, string nyckel){
+    for(unsigned int i=0;i<ord.size();i++){
+        if(nyckel[i]=='?')
+            nyckel[i]=ord[i];
+        for(unsigned int k=0;k<nyckel.size();k++){
+            if(ord[i]==nyckel[k])
+                continue;
+        }
+    }
+    return (ord==nyckel);
+
+}
+void automattestaMatcharFrgenyckel(){
+    assert( matcharNyckeln("xaby", "?ab?") );
+    assert( !matcharNyckeln("xaby", "?abz") );
+    assert( !matcharNyckeln("xaby", "?abyx") );
+    assert( !matcharNyckeln("xabyx", "?aby") );
+}
+
+void skrivMatchningar(const vector<string>& allaOrd, string nyckel){
+    for (unsigned int i=0; i<allaOrd.size(); i+=1) {
+        if (matcharNyckeln(allaOrd[i], nyckel))
+            cout << allaOrd[i] << endl;
+    }
+
+
+}
+void ordMatch(){
+    vector<string> allaOrd = ordlistan();
+    cout << "Valkommen till ordmatch!" << endl;
+    while (true){
+        cout << "NYCKEL:";
+        string nyckel;
+        getline( cin , nyckel );
+        if (nyckel == "")
+            continue;
+        if (nyckel == "avbryt")
+            break;
+        skrivMatchningar( allaOrd, nyckel);
+    }
+    cout << "(ordmatchningen avbrats)" << endl;
+}
 
 void shortcutToKap7Och8(){
-    huvudLoop();
+    automattestaMatcharFrgenyckel();
+    ordMatch();
+
 
 }
