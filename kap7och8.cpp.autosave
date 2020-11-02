@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 void testaCin1(){
@@ -82,6 +83,27 @@ void huvudLoop(){
         if(!ok)
             cout << "förstår ej" << endl;
     }
+}
+bool doingCalculations2(string kommandorad){
+    int a, b;
+    char op;
+    istringstream stream(kommandorad);
+    stream >> a >> op >> b;
+    bool ok=!stream.fail();
+    if(ok){
+        char dum;
+        stream >> dum;
+        ok=stream.fail();
+    }
+    if(ok){
+        if(op=='+') cout << a+b << endl;
+        else if(op=='-') cout << a-b << endl;
+        else if(op=='*') cout << a*b << endl;
+        else if(op=='/') cout << a/b << endl;
+        else if(op=='%') cout << a%b << endl;
+        else cout << "okänd operand" << endl;
+    }
+    return ok;
 }
 
 void shortcutToKap7Och8(){
