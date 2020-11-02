@@ -137,6 +137,37 @@ bool matcharNyckeln(string ord, string nyckel){
     return (ord==nyckel);
 
 }
+
+//ord       hejsan
+//nyckel    he?*n
+//temp      hej
+bool matcharVildnyckel(string ord, string nyckel){
+    string temp;
+    for(unsigned int i=0;i<ord.size();i+=1){
+        if(nyckel[i]=='?'){
+            temp+=ord[i];
+            continue;
+        }
+        if(ord[i]==nyckel[i]){
+            temp+=ord[i];
+            continue;
+        }
+        if(nyckel[i]=='*'){
+            for(unsigned int n=i;n<ord.size()-1;n+=1)
+                temp+=ord[n];
+
+        }
+        if(nyckel[i+1]==ord[ord.size()-1])
+            temp+=ord[ord.size()-1];
+    }
+    return (temp==ord);
+}
+void automattestaMatcharVildnyckel(){
+    assert( matcharVildnyckel("abcdefgh", "a?c*h") );
+    assert( !matcharVildnyckel("abcdefgh", "a?c*x") );
+    assert( !matcharVildnyckel("abcdefgh", "abc?") );
+}
+
 void automattestaMatcharFrgenyckel(){
     assert( matcharNyckeln("xaby", "?ab?") );
     assert( !matcharNyckeln("xaby", "?abz") );
@@ -146,7 +177,7 @@ void automattestaMatcharFrgenyckel(){
 
 void skrivMatchningar(const vector<string>& allaOrd, string nyckel){
     for (unsigned int i=0; i<allaOrd.size(); i+=1) {
-        if (matcharNyckeln(allaOrd[i], nyckel))
+        if (matcharVildnyckel(allaOrd[i], nyckel))
             cout << allaOrd[i] << endl;
     }
 
@@ -167,9 +198,39 @@ void ordMatch(){
     }
     cout << "(ordmatchningen avbrats)" << endl;
 }
+string testet(string ord, string nyckel){
+    string temp;
+    const unsigned int x = ord.size();
+    for(unsigned int i=0;i<ord.size();i+=1){
+        if(nyckel[i]=='?'){
+            temp+=ord[i];
+            continue;
+        }
+        if(ord[i]==nyckel[i]){
+            temp+=ord[i];
+            continue;
+        }
+        if(nyckel[i]=='*'){
+            for(unsigned int n=i;n<(x-1);n+=1)
+                temp+=ord[n];
+
+        }
+        if(nyckel[i+1]==ord[x-1])
+            temp+=ord[x-1];
+    }
+    return temp;
+}
+void testarTestet(){
+    string s1=testet("hejsan","h?j*n");
+    string s2="abcdefgh";
+    cout << s2 << s2.size();
+
+}
 
 void shortcutToKap7Och8(){
-    automattestaMatcharFrgenyckel();
+   // testarTestet();
+    automattestaMatcharVildnyckel();
+    //automattestaMatcharFrgenyckel();
     ordMatch();
 
 
