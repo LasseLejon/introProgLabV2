@@ -248,11 +248,18 @@ void testarTestet(){
     cout << s2 << s2.size();
 
 }
+void skrivHejfilsystem(){
+    string filnamn = "C:/Users/Lasse/OneDrive/Skrivbord/hej.txt";
+    ofstream ut;
+    ut.open(filnamn);
+    for(int i=0; i<10;i+=1)
+        ut << "Hej filsystem!" << endl;
+    ut.close();
+}
 
 void shortcutToKap7Och8(){
-    //testarTestet();
+    skrivHejfilsystem();
     automattestaMatcharVildnyckel();
-    //automattestaMatcharFrgenyckel();
     ordMatch();
 
 
