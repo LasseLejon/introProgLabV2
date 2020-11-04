@@ -127,7 +127,7 @@ void provaOrdlistan(){
 }
 
 //n:  a?avb
-//o:  abavb
+//o:  abacb
 bool matcharNyckeln(string ord, string nyckel){
     if(nyckel.size()!=ord.size())
         return false;
