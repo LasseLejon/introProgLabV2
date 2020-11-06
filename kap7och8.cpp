@@ -127,7 +127,7 @@ void provaOrdlistan(){
 }
 
 //n:  a?avb
-//o:  abavb
+//o:  abacb
 bool matcharNyckeln(string ord, string nyckel){
     if(nyckel.size()!=ord.size())
         return false;
@@ -260,8 +260,57 @@ void skrivHejfilsystem(){
         ut << "Hej filsystem!" << endl;
     ut.close();
 }
-
+unsigned int konstigMatch(string str1, string str2){
+    for(unsigned int i=0;i<str1.size()&&i<str2.size();i+=1){
+     if(str2[i]=='X')
+         continue;
+     if(tolower(str1[i])!=tolower(str2[i]))
+         return i;
+    }
+    return 99;
+}
+void provaKonstigMatch(){
+    cout << "prova" << endl;
+    unsigned int x0 = konstigMatch("abc","Xfc");
+    unsigned int x1 = konstigMatch("ABC","abc");
+    unsigned int x2=konstigMatch("abcdef","Xbcde");
+    unsigned int x3=konstigMatch("abc","defabc");
+    unsigned int x4=konstigMatch("abc","anjovis");
+    cout << x0 << endl;
+    cout << x1 << endl;
+    cout << x2 << endl;
+    cout << x3 << endl;
+    cout << x4 << endl;
+}
+int x(const char str[]){
+    for(int i=0; true;i++){
+        if(str[i]==0)
+            return i;
+    }
+}
+void provaX(){
+    cout << x("HEJ") << endl;
+    cout << x("////") << endl;
+    cout << x("\t\t") << endl;
+}
+vector <string> enVek(){
+    istringstream texts("Denna dag ett liv!");
+    vector <string> resultat;
+    string ord;
+    while(texts >> ord)
+        resultat.push_back(ord);
+    return resultat;
+}
+void testaEnVek(){
+    vector<string> v = enVek();
+    string s=v[3];
+    cout << "Size = " << v.size() << endl;
+    cout << "strang =" << s << endl;
+}
 void shortcutToKap7Och8(){
+    testaEnVek();
+    provaX();
+    provaKonstigMatch();
     automattestaMatcharFrgenyckel();
     skrivHejfilsystem();
     automattestaMatcharVildnyckel();
