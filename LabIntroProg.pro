@@ -13,4 +13,5 @@ SOURCES += \
         teckenOchStrangar.cpp
 
 HEADERS += \
-	myMathFunctions.h
+	myMathFunctions.h \
+	vanligt.h
