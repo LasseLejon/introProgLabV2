@@ -9,11 +9,12 @@ void shortcutToPrimes();
 void shortcutToTeckenOchStrangar();
 
 void shortcutToKap7Och8();
+void shortcutToKap9och10();
 
 
 
 int main(){
-    shortcutToKap7Och8();
+    shortcutToKap9och10();
 
     return 0;
 }

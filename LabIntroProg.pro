@@ -9,6 +9,8 @@ SOURCES += \
         kap7och8.cpp \
         kap9och10.cpp \
         main.cpp \
+        myMathFunctions.cpp \
         teckenOchStrangar.cpp
 
-HEADERS +=
+HEADERS += \
+	myMathFunctions.h
