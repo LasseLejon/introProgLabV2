@@ -7,6 +7,7 @@ SOURCES += \
         arrayer.cpp \
         fyllMedPrimtal.cpp \
         kap7och8.cpp \
+        kap9och10.cpp \
         main.cpp \
         teckenOchStrangar.cpp
 
