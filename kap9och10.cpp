@@ -130,12 +130,19 @@ bool boolFranUppmaning(const char uppmaning[]){
     cout << uppmaning;
     while(true){
         char svar;
+        cout << ":";
         cin >> svar;
         if(svar=='j')
             return true;
         if(svar=='n')
             return false;
-        else continue;
+        if(svar!='j'&&svar!='n'){
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+            cout << endl;
+        }
+
 
     }
 }
@@ -152,7 +159,7 @@ void spelaTarningsspelet(){
     int kapital = 100;
     while(kapital>=10){
         cout << "Du har " << kapital << " kronor" << endl;
-        bool spelaMera = boolFranUppmaning("Vill du spela mera? (j/n):");
+        bool spelaMera = boolFranUppmaning("Vill du spela mera? (j/n)");
         if(spelaMera){
             kapital = kapital - 10 + bruttovinstFranUtfordSpelomgang();
         }
@@ -176,19 +183,83 @@ void skrivAnalysAvSpel(){
     }
     cout << "Den totala vinsten blev: " << nettovinst << endl
          << "Den genomsnittliga vinsten blev: " << nettovinst/1000000 << endl;
+}
+string spelbord(int antalStickor){
+    string stickor;
+    int spacing=4;
+    for(int i=0; i<antalStickor;i++){
+        if(i==spacing){
+            stickor += "| ";
+            spacing += 5;
+        }
+        else
+            stickor += '|';
+    }
+    return stickor;
+}
+void testaspelbord(){
+    assert(spelbord(4)=="||||");
+    assert(spelbord(12)=="||||| ||||| ||");
+    assert(spelbord(21)=="||||| ||||| ||||| ||||| |");
+}
+int spelarensDrag(int antalStickor){
+    assert(antalStickor>=1);
+    while(true){
+        int val=0;
+        cout << "Valj mellan att plocka 1 eller 2 stickor:";
+        cin >> val;
+        if(val==2)
+            return val;
+        if(val==1)
+            return val;
+        else{
+            cin.clear();
+            cin.ignore(1000, '\n');
+            continue;
+        }
+    }
+}
+int datornsDrag(int antalStickor){
+    assert(antalStickor>=1);
+    if(antalStickor==2||antalStickor==5)
+        return 2;
+    if(antalStickor==1||antalStickor==4)
+        return 1;
+    else return(rand()%2 + 1);
+}
 
-
+void spelaStickspelet(){
+    while(true){
+        bool spela = boolFranUppmaning("Vill du spela sticka?(j/n)");
+        if(!spela){
+            cout << "Fegis!" << endl;
+            break;
+        }
+        int antalStickor=20+rand()%8;
+        cout << spelbord(antalStickor) << endl;
+        while(antalStickor>0){
+            antalStickor-=spelarensDrag(antalStickor);
+            cout << spelbord(antalStickor) << endl;
+            if(antalStickor==0){
+                cout << "Du vann pa tur!" << endl;
+                break;
+            }
+            int drag=datornsDrag(antalStickor);
+            cout << "Datorn tar " << drag << endl;
+            antalStickor -= drag;
+            cout << spelbord(antalStickor) << endl;
+            if(antalStickor==0){
+                cout << "Datorn vann, looser!" << endl;
+                break;
+            }
+        }
+    }
 }
 
 void shortcutToKap9och10(){
+    spelaStickspelet();
+    testaspelbord();
     skrivAnalysAvSpel();
     spelaTarningsspelet();
 
-
-
 }
-
-
-//Hej heltal 2
-//Hej på dig flyttal 2.1
-//Hej på er flyttal
