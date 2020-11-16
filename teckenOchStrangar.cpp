@@ -65,6 +65,7 @@ void provarDemoAvConst(){
     demoOfConst(str);
     demoOfConst("Hello");
 }
+
 bool areSame(const char str1[], const char str2[]){
     int i = 0;
     while(str1[i]!=0 || str2[i]!=0){
@@ -84,6 +85,7 @@ void testAreSame(){
     assert(!areSame("abcd", "Xbcd"));
 
 }
+
 void testAreSameTwo(const char str1[], const char str2[]){
     bool lika = areSame(str1, str2);
     if (lika)
