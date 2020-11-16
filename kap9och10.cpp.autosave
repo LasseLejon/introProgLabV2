@@ -18,6 +18,8 @@ void hejTal(double x, double y){
 void hejTal(int x, int y, int z){
     cout << "Hej alla tre heltal " << x << ", " << y << ", " << z << endl;
 }
+
+
 void testaHejTal(){
     hejTal(2);
     hejTal(2.1);
