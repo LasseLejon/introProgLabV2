@@ -179,9 +179,11 @@ char* cstrFranUppmaning(const char* uppmaning){
 }
 void provaCstrFranUppmaning(){
     const char *fornamn=cstrFranUppmaning("Ditt fornamn: ");
+    const char *mellannamn=cstrFranUppmaning("Ditt mellannamn: ");
     const char *efternamn=cstrFranUppmaning("Ditt efternamn: ");
-    cout << "Hej " << fornamn << " " << efternamn << "!" << endl;
+    cout << "Hej " << fornamn << " " << mellannamn << " "<< efternamn << "!" << endl;
     delete[] fornamn;
+    delete[] mellannamn;
     delete[] efternamn;
 }
 void changeValues(int &a, int &b){
@@ -199,7 +201,7 @@ void testChangeValues(){
     int b=2;
     changeValues(a,b);
     assert(a==2&&b==1);
-    double x =1.5;
+    double x=1.5;
     double y=2.5;
     changeValues(x,y);
     assert(x==2.5&&y==1.5);
