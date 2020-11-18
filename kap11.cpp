@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <cassert>
 using namespace std;
 
@@ -160,7 +161,52 @@ void testaArrayFunktionerna(){
     assert( m == -3 && s == 3 );
     assert( contains2(&arr[0], &arr[storlek], 3));
 }
+char* cstrCopy(const char *cstr){
+    char *copy=new char[100];
+    int i=0;
+    while(*(cstr+i)!=0){
+        *(copy+i)=*(cstr+i);
+        i+=1;
+    }
+    return copy;
+}
+
+char* cstrFranUppmaning(const char* uppmaning){
+    cout << uppmaning;
+    char str[100];
+    cin >> setw(100) >> str;
+    return cstrCopy(str);
+}
+void provaCstrFranUppmaning(){
+    const char *fornamn=cstrFranUppmaning("Ditt fornamn: ");
+    const char *efternamn=cstrFranUppmaning("Ditt efternamn: ");
+    cout << "Hej " << fornamn << " " << efternamn << "!" << endl;
+    delete[] fornamn;
+    delete[] efternamn;
+}
+void changeValues(int &a, int &b){
+    int oldA=a;
+    a=b;
+    b=oldA;
+}
+void changeValues(double &a, double &b){
+    double oldA=a;
+    a=b;
+    b=oldA;
+}
+void testChangeValues(){
+    int a=1;
+    int b=2;
+    changeValues(a,b);
+    assert(a==2&&b==1);
+    double x =1.5;
+    double y=2.5;
+    changeValues(x,y);
+    assert(x==2.5&&y==1.5);
+}
 void shortcutToKap11(){
+    testChangeValues();
+    provaCstrFranUppmaning();
     testaArrayFunktionerna();
     testWriteStrings();
     automattestaKonverteraTillRubrik2();
