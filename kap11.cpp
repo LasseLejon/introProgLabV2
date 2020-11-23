@@ -206,7 +206,50 @@ void testChangeValues(){
     changeValues(x,y);
     assert(x==2.5&&y==1.5);
 }
+void hej123(){
+    const int n=10;
+    int tal[n]{2,3,5,7,11,13,17,19,23,27};
+    int *pEnd=&tal[n];
+    int *p=&tal[0];
+    while(p<pEnd){
+        if(*p==2)
+            break;
+        p+=1;
+    }
+    int i=p-tal;
+    cout << i << endl;
+}
+void hej321(){
+    const int n=10;
+    int tal[n]{2,3,5,7,11,13,17,19,23,27};
+    int index =0;
+    int *p= tal;
+    while(*p<7){
+        p+=1;
+        index+=1;
+    }
+    cout << index << endl;
+}
+void hej1(){
+    int x =4;
+    int *pX=&x;
+    int *pY=&x;
+    *pY=3;
+    cout << *pX << endl;
+}
+void hej2(){
+    const int n=10;
+    int tal[n]{2,3,5,7,11,13,17,19,23,27};
+    int *pX=&tal[2];
+    int *pY=&tal[7];
+    int a=pY-pX;
+    cout << a << endl;
+}
 void shortcutToKap11(){
+    hej2();
+    hej1();
+    hej321();
+    hej123();
     testChangeValues();
     provaCstrFranUppmaning();
     testaArrayFunktionerna();
