@@ -11,11 +11,12 @@ void shortcutToTeckenOchStrangar();
 void shortcutToKap7Och8();
 void shortcutToKap9och10();
 void shortcutToKap11();
+void shortcutToKap12();
 
 
 
 int main(){
-    shortcutToKap11();
+    shortcutToKap12();
 
     return 0;
 }
