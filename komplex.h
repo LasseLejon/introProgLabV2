@@ -1,6 +1,7 @@
 #ifndef KOMPLEX_H
 #define KOMPLEX_H
 #include <string>
+#include <ostream>
 struct Komplex{
     double re;
     double im;
@@ -19,5 +20,20 @@ Komplex differens(Komplex a, Komplex b);
 Komplex produkt(Komplex a, Komplex b);
 Komplex kvot(Komplex a, Komplex b);
 
+Komplex operator+(Komplex a, Komplex b);
+Komplex operator+(Komplex a, double b);
+Komplex operator+(double a, Komplex b);
+Komplex operator-(Komplex a, Komplex b);
+Komplex operator-(Komplex a, double b);
+Komplex operator-(double a, Komplex b);
+Komplex operator*(Komplex a, Komplex b);
+Komplex operator*(Komplex a, double b);
+Komplex operator*(double a, Komplex b);
+Komplex operator/(Komplex a, Komplex b);
+Komplex operator/(Komplex a, double b);
+Komplex operator/(double a, Komplex b);
+
 std::string stringFromKomplex(Komplex c);
+
+std::ostream& operator<<(std::ostream&o, Komplex c);
 #endif // KOMPLEX_H

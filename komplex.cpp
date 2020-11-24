@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 #include <sstream>
+using namespace std;
 double radFromDegrees(double angleInDegrees){
     double radians=angleInDegrees/180*M_PI;
     return radians;
@@ -73,11 +74,64 @@ Komplex kvot(Komplex a, Komplex b){
     kvot.im=nyTaljare.im/nyNamnare.re;
     return kvot;
 }
+
+Komplex operator+(Komplex a, Komplex b){
+    return(summa(a,b));
+}
+Komplex operator+(Komplex a, double b){
+    a.re+=b;
+    return a;
+}
+Komplex operator+(double a, Komplex b){
+    b.re+=a;
+    return b;
+}
+Komplex operator-(Komplex a, Komplex b){
+    return(differens(a,b));
+}
+Komplex operator-(Komplex a, double b){
+    a.re-=b;
+    return a;
+}
+Komplex operator-(double a, Komplex b){
+    b.re-=a;
+    return b;
+}
+
+Komplex operator*(Komplex a, Komplex b){
+    return(produkt(a,b));
+}
+Komplex operator*(Komplex a, double b){
+    a.re*=b;
+    return a;
+}
+Komplex operator*(double a, Komplex b){
+    b.re*=a;
+    return b;
+}
+
+Komplex operator/(Komplex a, Komplex b){
+    return(kvot(a,b));
+}
+Komplex operator/(Komplex a, double b){
+    a.re/=b;
+    return a;
+}
+Komplex operator/(double a, Komplex b){
+    b.re/=a;
+    return b;
+}
+
 std::string stringFromKomplex(Komplex c){
     std::stringstream os;
     os << "(" << c.re;
     if(c.im>=0)
         os << "+";
-    os << c.im << "i";
+    os << c.im << "i" << ")";
     return os.str();
+}
+
+ostream& operator<<(ostream&o, Komplex c){
+    o << stringFromKomplex(c);
+    return o;
 }
