@@ -1,0 +1,4 @@
+#ifndef PLAYINGCARD_H
+#define PLAYINGCARD_H
+
+#endif // PLAYINGCARD_H

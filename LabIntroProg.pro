@@ -13,10 +13,12 @@ SOURCES += \
         komplex.cpp \
         main.cpp \
         myMathFunctions.cpp \
+        playingCard.cpp \
         teckenOchStrangar.cpp \
         testaKomplex.cpp
 
 HEADERS += \
 	komplex.h \
 	myMathFunctions.h \
+	playingCard.h \
 	vanligt.h
