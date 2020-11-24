@@ -60,6 +60,7 @@ void printExchangeMoney(Exchangemoney ex){
 void autoTestExchangeMoney(){
     Exchangemoney vp=exchangeMoneyFromAmount(836);
     assert(amountFromExchangemoney(vp)==836);
+    printExchangeMoney(exchangeMoneyFromQuantity(1,2,3,4,5,6,7));
 
 
 

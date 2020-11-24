@@ -10,10 +10,13 @@ SOURCES += \
         kap12.cpp \
         kap7och8.cpp \
         kap9och10.cpp \
+        komplex.cpp \
         main.cpp \
         myMathFunctions.cpp \
-        teckenOchStrangar.cpp
+        teckenOchStrangar.cpp \
+        testaKomplex.cpp
 
 HEADERS += \
+	komplex.h \
 	myMathFunctions.h \
 	vanligt.h
