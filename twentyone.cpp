@@ -14,12 +14,19 @@ void checkWhoWon(int player, int computer){
         cout << "You lost!" << endl;
     if(player>computer && player<22)
         cout << "You won!" << endl;
+    if(player==computer)
+        cout << "It's a draw" << endl;
 }
 void testShuffle(){
     DeckOfCards deck=newDeck();
     shuffleTheDeck(deck);
     for(int n=0;n<deck.cardsRemaining;n++)
         cout << stringFromPlayingCard(deck.cards[n]) << "   ";
+}
+bool gotAnAce(int checkIfAce){
+    if(checkIfAce==1)
+        return true;
+    else return false;
 }
 
 void playTwentyOne(){
@@ -35,7 +42,16 @@ void playTwentyOne(){
         int sumOfPlayer=playersCard.value;
         int sumOfComputer=computersCard.value;
         bool takeCard=true;
+        bool playerGotAnAce=false;
+        bool computerGotAnAce=false;
+        int pNumberOfAces=0;
         while(sumOfPlayer < 22 && sumOfComputer < 22 && takeCard){
+            if(gotAnAce(playersCard.value)){
+                playerGotAnAce=true;
+                pNumberOfAces+=1;
+            }
+            if(gotAnAce(computersCard.value))
+                computerGotAnAce=true;
             cout << "The value of your cards are: " << sumOfPlayer << '\n' <<
                     "The value of the computers cards are: " << sumOfComputer << endl;
             takeCard=boolFranUppmaning2("Do you want another card? (y/n)");
@@ -52,10 +68,16 @@ void playTwentyOne(){
                 cout << "The computer got " << stringFromPlayingCard(computersCard) << endl;
             }
         }
+        if(playerGotAnAce){
+            for(int ix=0;ix<pNumberOfAces;ix++){
+                int ace=1;
+                cout << "Choose what you want your ace to be worth (1/14) ";
+                cin >> ace;
+                sumOfPlayer+=(ace-1);
+                cout << sumOfPlayer;
+            }
+        }
         checkWhoWon(sumOfPlayer,sumOfComputer);
-
-
     }
-
 }
 
