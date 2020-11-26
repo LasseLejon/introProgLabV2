@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         arrayer.cpp \
+        deckOfCards.cpp \
         fyllMedPrimtal.cpp \
         kap11.cpp \
         kap12.cpp \
@@ -15,9 +16,11 @@ SOURCES += \
         myMathFunctions.cpp \
         playingCard.cpp \
         teckenOchStrangar.cpp \
-        testaKomplex.cpp
+        testaKomplex.cpp \
+        twentyone.cpp
 
 HEADERS += \
+	deckOfCards.h \
 	komplex.h \
 	myMathFunctions.h \
 	playingCard.h \

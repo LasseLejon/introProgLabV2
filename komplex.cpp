@@ -56,7 +56,7 @@ Komplex differens(Komplex a, Komplex b){
     differens.im=a.im-b.im;
     return differens;
 }
-//=(ac−bd)+(ad+bc)i
+
 Komplex produkt(Komplex a, Komplex b){
     Komplex produkt;
     produkt.re=a.re*b.re-a.im*b.im;

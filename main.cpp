@@ -15,9 +15,10 @@ void shortcutToKap12();
 void shortcutToTestaKomplex();
 
 
-
+void playTwentyOne();
+void testShuffle();
 int main(){
-    shortcutToTestaKomplex();
+    playTwentyOne();
 
     return 0;
 }
