@@ -62,7 +62,7 @@ void playTwentyOne(){
 
             }
             // datorn tar ett kort om datorns värde är mindre än spelarens
-            if(sumOfComputer<sumOfPlayer && sumOfPlayer<22){
+            while(sumOfComputer<sumOfPlayer && sumOfPlayer<22){
                 computersCard=cardFromDeck(deck);
                 sumOfComputer+=computersCard.value;
                 cout << "The computer got " << stringFromPlayingCard(computersCard) << endl;
